@@ -16,10 +16,16 @@ import java.time.ZonedDateTime;
 public class Sensor {
     final private String sensorName;
     final private String sensorType;
+    private int Xangle;
+    private int Yangle;
+    
+    
+    
     private final ZoneId id;
-    private String time;
+    private String timedofcapture;
     private Databasemanger datamanger;
     private boolean logState;
+    
 
     
     
@@ -31,9 +37,19 @@ public class Sensor {
         
     }
     
+    public Sensor( String sensorName,String sensorType,int angle){
+       this.sensorName = sensorName;
+       this.sensorType = sensorType;
+       this.id = ZoneId.of("-05:00");
+       this.Xangle = angle;
+  
+        
+    }
+
+    
     public String currenttime(){
-        time =ZonedDateTime.now(id).toString();
-        return time;
+        timedofcapture =ZonedDateTime.now(id).toString();
+        return timedofcapture;
     }
      
     
@@ -102,6 +118,22 @@ public class Sensor {
         catch ( InterruptedException e)
         {
         }
+    }
+
+    public int getXangle() {
+        return Xangle;
+    }
+
+    public void setXangle(int Xangle) {
+        this.Xangle = Xangle;
+    }
+
+    public int getYangle() {
+        return Yangle;
+    }
+
+    public void setYangle(int Yangle) {
+        this.Yangle = Yangle;
     }
 
    
